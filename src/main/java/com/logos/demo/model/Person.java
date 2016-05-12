@@ -26,7 +26,7 @@ public class Person {
 	private String name;
 	private String email;
 	private String password;
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL) 
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE) 
 	@JoinTable(name = "person_role", joinColumns = { 
 	@JoinColumn(name = "PERSON_ID", nullable = false, updatable = false) }, 
 	inverseJoinColumns = { @JoinColumn(name = "ROLE_ID", 
@@ -47,7 +47,10 @@ public class Person {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	public void addAllRoles(List<Role> list)
+	{
+		roles.addAll(list);
+	}
 	public String getName() {
 		return name;
 	}

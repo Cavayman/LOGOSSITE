@@ -1,5 +1,16 @@
 package com.logos.demo.dao;
 
-public interface RoleDao {
+import java.util.List;
 
+import javax.transaction.Transactional;
+
+import com.logos.demo.model.Role;
+
+public interface RoleDao {
+	@Transactional
+	public List<Role> getAllRoles(); //just gives you a list 
+	@Transactional
+	public List<Role> choseYourRoles(String[]roles); //gives you list of roles with  name like in *roles* 
+	
+	
 }

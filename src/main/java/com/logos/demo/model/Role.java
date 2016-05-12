@@ -23,6 +23,16 @@ public class Role {
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles") 
 	private List<Person> person = new ArrayList<>();
 
+	
+	public Role() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Role(String name) {
+		super();
+		this.name = name;
+	}
+
 	public short getId() {
 		return id;
 	}
@@ -46,5 +56,11 @@ public class Role {
 	public void setPerson(List<Person> person) {
 		this.person = person;
 	}
+
+	@Override
+	public String toString() {
+		return "Role [id=" + id + ", name=" + name + "]";
+	}
+	
 
 }
